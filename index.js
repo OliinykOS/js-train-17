@@ -57,12 +57,13 @@ console.log(checkWord("example", "This is an example sentence."));
  */
 function extractTextInParentheses(str) {
     // Створення регулярного виразу з використанням зворотніх посилань для пошуку тексту в круглих дужках /\((.*?)\)/g.
+    const regex = /\((.*?)\)/g;
     // Використання методу `matchAll` для отримання всіх збігів регулярного виразу.
+    const matches = str.matchAll(regex);
     // Створення масиву зі знайденими текстами.
+    const extractedTexts = Array.from(matches, (match) => match[1]);
     // Повернення масиву вилучених текстів.
-    const regExp = /\((.*?)\)/g;
-    const result = [...str.matchAll(regExp)];
-    console.log(result);
+    return extractedTexts;
 }
 
 // Перевірка
